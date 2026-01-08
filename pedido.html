@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido</title>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #111, #000);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Palavras animadas */
+    .word {
+      position: absolute;
+      bottom: -40px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      animation: subir 7s linear infinite;
+      opacity: 0.8;
+      white-space: nowrap;
+    }
+
+    @keyframes subir {
+      from {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(-120vh);
+        opacity: 1;
+      }
+    }
+
+    .card {
+      background: #fff;
+      padding: 35px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      width: 340px;
+      position: relative;
+      animation: fadeIn 1s ease;
+      z-index: 2;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #sim {
+      background: #000;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    }
+
+    #sim:hover {
+      transform: scale(1.15);
+      background: #222;
+    }
+
+    #nao {
+      background: #ddd;
+      color: #333;
+      position: absolute;
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Palavras flutuando -->
+  <span class="word" style="left:10%">Te adorooooooo</span>
+  <span class="word" style="left:25%; animation-delay:2s">Te queroooooo</span>
+  <span class="word" style="left:40%; animation-delay:4s">Você é lindaaaaa </span>
+  <span class="word" style="left:60%; animation-delay:1s">Você é maravilhosaaaaa </span>
+  <span class="word" style="left:75%; animation-delay:3s">Você é gostosaaaaa </span>
+  <span class="word" style="left:90%; animation-delay:5s">Você é uma delíciaaaa </span>
+
+  <div class="card">
+    <h1>Marilis</h1>
+    <p>Tu aceita namorar comigo?</p>
+
+    <div class="buttons">
+      <button id="sim" onclick="aceitou()">SIMMMMMMMM</button>
+      <button id="nao" onmouseover="fugir()">NÃO ❌</button>
+    </div>
+
+    <footer>
+      ⚠️ Atenção: clicar em NÃO é praticamente impossível hahahaha
+    </footer>
+  </div>
+
+  <script>
+    function aceitou() {
+      alert("Estamos namorando! Hahahaha!");
+      alert("Agora me beijeeeeeeeeeeeeee 😘");
+    }
+
+    function fugir() {
+      const botaoNao = document.getElementById("nao");
+
+      const largura = window.innerWidth - 120;
+      const altura = window.innerHeight - 80;
+
+      const x = Math.random() * largura;
+      const y = Math.random() * altura;
+
+      botaoNao.style.left = x + "px";
+      botaoNao.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
